@@ -1,4 +1,4 @@
-# protable pytyhon3-apt
+# portable pytyhon3-apt
 > A lightweight Bash build tool for assembling portable Debian APT and Python runtime dependencies
 
 [![License: GPL-2.0](https://img.shields.io/badge/License-GPL--2.0-blue.svg)](LICENSE)
