@@ -80,6 +80,7 @@ declare -A lib_used=(
     ["libcap.so.2"]=1
     ["libcrypto.so.3"]=1
     ["libexpat.so.1"]=1
+    ["libexpat.so"]=1
     ["libgcc_s.so.1"]=1
     ["liblz4.so.1"]=1
     ["liblzma.so.5"]=1
@@ -90,9 +91,9 @@ declare -A lib_used=(
     ["libudev.so.1"]=1
     ["libxxhash.so.0"]=1
     ["libz.so.1"]=1
+    ["libz.so"]=1
     ["libzstd.so.1"]=1
     ["libpython3.13.so"]=1
-    ["libpython3.13.a"]=1
     ["libpython3.13.so.1"]=1
 )
 
@@ -147,17 +148,16 @@ color:print "repathed! elfs apt/apt_inst.cpython-313-*.so and apt/apt_pkg.cpytho
 for pyfile in apt/*.py apt/progress/*.py; do
     
     if cython -3 -o "${pyfile%.py}.c" "$pyfile"; then
-    	color:print "CY		${pyfile%.py}.c" ${blue}
+    	color:print "CYHTON		${pyfile%.py}.c" ${blue}
     else
     	exit 1
     fi  
     
     if ${CC} ${CC_FLAGS} -o "${pyfile%.py}.so" "${pyfile%.py}.c"; then
-    	color:print "CC		${pyfile%.py}.so" ${purple}	
+    	color:print "CC    		${pyfile%.py}.so" ${purple}	
     else
         exit 1
 	fi
-	
 	
 done
 
